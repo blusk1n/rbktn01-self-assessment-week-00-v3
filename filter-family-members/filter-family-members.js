@@ -52,5 +52,23 @@
 
 var filterFamilyMembers = function (familyTree, truthTest) {
   // All your code in this function body
+  var arr = [];
+  console.log(familyTree)
+  function recursion(familyTree){
+  	// for(var key in familyTree){
+  		if(truthTest(familyTree)){
+  		arr.push(familyTree.firstName+"."+familyTree.lastName)
+  		}
+  	// }//for 
+  		if(familyTree.children !== []){
+	  		familyTree.children.forEach(function(element){
+	  			recursion(element)
+	  		})//each
+  		}//if
+  	
+  }// recurion function
+  recursion(familyTree)
+   return arr
+
 };
 
